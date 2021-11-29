@@ -13,7 +13,7 @@ Functionalities
 * stop cluster
 * commands - kubectl
 
-### datalake_gen2
+### Azure Data Lake Storage Gen2 (adls2) - datalake_gen2
 
 Functionalities
 
