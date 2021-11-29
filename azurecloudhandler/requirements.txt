@@ -1,2 +1,0 @@
-azure-storage-file-datalake==12.5.0
-requests==2.22.0
