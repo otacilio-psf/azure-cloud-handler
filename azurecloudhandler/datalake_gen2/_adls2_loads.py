@@ -8,14 +8,15 @@ class ADSL2DataLoad:
         self._file_system_name = file_system_name
         self._fs = FileSystemClient(account_url, file_system_name, credential=credential)
 
-    def upload_file(self, local_file_path, remote_file_path, overwrite=True, chunk_size=50*1024*1024):
+    def upload_file(self, local_file_path, remote_file_path, chunk_size=50*1024*1024):
         """
+        If file exist will overwrite it
+        
         :param Optional[int] chunk_size:
             The maximum chunk size for uploading a file in chunks. Defaults to 50*1024*1024, or 50MB.
         """
         file_client = self._fs.get_file_client(remote_file_path)
-        if overwrite:
-            file_client.create_file()
+        file_client.create_file()
         with open(local_file_path, 'rb') as file:
             position = 0
             for part in iter(lambda: file.read(chunk_size), b''):
@@ -23,6 +24,7 @@ class ADSL2DataLoad:
                 file_client.append_data(data=part, offset=position, length=length)
                 position += length
                 file_client.flush_data(position)
+        print(f"Uploaded: {remote_file_path}")
 
     def download_file(self):
         """

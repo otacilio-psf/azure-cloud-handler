@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: teste-pod-00000000
+spec:
+  containers:
+  - name: teste
+    image: hello-world:latest
+    imagePullPolicy: Always
+    resources:
+      limits:
+        cpu: "1"
+        memory: "800Mi"
+  restartPolicy: Never

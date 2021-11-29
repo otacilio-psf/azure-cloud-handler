@@ -1,6 +1,6 @@
 import requests
 
-class ClusterOperation():
+class KubernetesOperation():
 
     def __init__(self, subscription_id, credential, rg_name, aks_name):
         self._subscription_id = subscription_id

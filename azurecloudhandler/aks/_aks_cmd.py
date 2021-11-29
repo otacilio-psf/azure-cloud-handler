@@ -22,6 +22,9 @@ class KubernetesCommand():
         self._kubeconfig = [ct["value"] for ct in r.json()["kubeconfigs"] if ct["name"] == "clusterAdmin"][0]
 
     def _get_context(self, context_path):
+        if not context_path:
+            return ""
+        
         zip_obj = BytesIO()
         file_paths = []
 
@@ -37,7 +40,7 @@ class KubernetesCommand():
         zip_obj.seek(0)
         return b64encode(zip_obj.read()).decode('ascii')
 
-    def cmd(self, command, context):
+    def cmd(self, command, context=None):
         body = {
         "command": command,
         "context": self._get_context(context),
