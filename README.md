@@ -1,3 +1,21 @@
 # Azure Cloud Handler
 
-Python classes to interact with some resources on Azure
+Library to optimally handle some resources on Azure
+
+## libs
+
+### aks - doesn't yet exist in the official Azure SDK
+
+Functionalities
+
+* status of cluster
+* start cluster
+* stop cluster
+* commands - kubectl
+
+### datalake_gen2
+
+Functionalities
+
+* upload file in chunks
+    * avoid memory overhead for big files
