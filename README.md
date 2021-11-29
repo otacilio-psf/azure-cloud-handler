@@ -4,7 +4,7 @@ Library to optimally handle some resources on Azure
 
 ## libs
 
-### aks - doesn't yet exist in the official Azure SDK
+### Azure Kubernetes Service (aks) - doesn't yet exist in the official Azure SDK
 
 Functionalities
 
