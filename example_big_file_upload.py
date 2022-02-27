@@ -1,5 +1,5 @@
 from azure.identity import ClientSecretCredential
-from azurecloudhandler.datalake_gen2 import ADSL2DataLoad
+from azurecloudhandler.datalake_gen2 import FileSystem, ADSL2DataLoad
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -10,11 +10,15 @@ credential = ClientSecretCredential(
     tenant_id = os.getenv("AZURE_TENANT_ID")
 )
 
-dload = ADSL2DataLoad(
+file_system_ddlake = FileSystem(
     storage_account_name = "deepdivelake",
     file_system_name = "poc-teste",
     credential = credential
-    )
+)
+
+dload = ADSL2DataLoad(
+    file_system = file_system_ddlake
+)
 
 if __name__ == "__main__":
     
