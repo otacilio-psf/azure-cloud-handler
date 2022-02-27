@@ -19,3 +19,6 @@ Functionalities
 
 * upload file in chunks
     * avoid memory overhead for big files
+
+* move file in chunks
+    * move file between file systems
